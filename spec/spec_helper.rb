@@ -19,7 +19,11 @@ ENV['RAILS_ENV'] = 'test'
 require File.expand_path('dummy/config/environment.rb', __dir__)
 
 # Requires factories and other useful helpers defined in spree_core.
+require 'rspec/active_model/mocks'
 require "solidus_support/extension/feature_helper"
+require 'spree/api/testing_support/helpers'
+require 'spree/api/testing_support/setup'
+require 'spree/testing_support/authorization_helpers'
 require 'spree/testing_support/controller_requests'
 
 require 'vcr'
@@ -67,6 +71,8 @@ RSpec.configure do |config|
   config.example_status_persistence_file_path = "tmp/failed_examples.txt"
 
   config.include SolidusPaypalBraintree::GatewayHelpers
+  config.include Spree::Api::TestingSupport::Helpers
+  config.include Spree::Api::TestingSupport::Setup
 
   config.before(:each, type: :feature, js: true) do |ex|
     Capybara.current_driver = ex.metadata[:driver] || :poltergeist
