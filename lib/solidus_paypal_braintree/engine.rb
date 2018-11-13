@@ -53,7 +53,7 @@ module SolidusPaypalBraintree
         Spree::Backend::Config.configure do |config|
           config.menu_items << config.class::MenuItem.new(
             [:braintree],
-            'cc-paypal',
+            'wrench',
             url: '/solidus_paypal_braintree/configurations/list',
             condition: -> { can?(:list, SolidusPaypalBraintree::Configuration) }
           )
