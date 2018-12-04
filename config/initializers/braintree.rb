@@ -6,7 +6,8 @@ if Spree::Backend::Config.respond_to?(:menu_items)
       [:paypal_braintree],
       'wrench',
       label: 'Braintree',
-      url: "#{ActionController::Base.relative_url_root}/solidus_paypal_braintree/configurations/list"
+      url: "#{ActionController::Base.relative_url_root}/solidus_paypal_braintree/configurations/list",
+      condition: -> { can?(:manage, SolidusPaypalBraintree::Transaction) }
     )
   end
 end
