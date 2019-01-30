@@ -54,6 +54,7 @@ module SolidusPaypalBraintree
           config.menu_items << config.class::MenuItem.new(
             [:braintree],
             'wrench',
+            label: 'braintree',
             url: '/solidus_paypal_braintree/configurations/list',
             condition: -> { can?(:list, SolidusPaypalBraintree::Configuration) }
           )
