@@ -1,5 +1,6 @@
 # Run Coverage report
 require 'simplecov'
+require 'webdrivers'
 
 SimpleCov.minimum_coverage(98)
 
