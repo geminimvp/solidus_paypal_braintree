@@ -151,6 +151,9 @@ RSpec.describe SolidusPaypalBraintree::Gateway do
           state: "CA",
           zip: "90210",
           country: "US"
+        },
+        originator: {
+          braintree_device_data: "test123"
         }
       }
     end

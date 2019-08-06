@@ -36,6 +36,10 @@ require 'solidus_paypal_braintree/factories'
 
 ApplicationController.prepend_view_path "spec/fixtures/views"
 
+FactoryBot.use_parent_strategy = false
+
+driver_hosts = Webdrivers::Common.subclasses.map { |driver| URI(driver.base_url).host }
+
 VCR.configure do |c|
   c.cassette_library_dir = "spec/fixtures/cassettes"
   c.hook_into :webmock
@@ -46,6 +50,8 @@ VCR.configure do |c|
     allow_unused_http_interactions: false
   }
   c.allow_http_connections_when_no_cassette = false
+
+  c.ignore_hosts(*driver_hosts)
 end
 
 require 'braintree'

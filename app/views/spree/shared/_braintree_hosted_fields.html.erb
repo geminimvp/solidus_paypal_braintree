@@ -25,4 +25,6 @@
   <div class="clear"></div>
   <input type="hidden" name="<%= prefix %>[payment_type]" value="<%= SolidusPaypalBraintree::Source::CREDIT_CARD %>">
   <input type="hidden" id="payment_method_nonce" name="<%= prefix %>[nonce]">
+  <% # hope we don't ever use this partial for real b/c this make noooooooooooo sense%>
+  <input type="hidden" id="braintree-device-data" name="order[payments_attributes][][braintree_device_data]" value="test123" />
 </div>

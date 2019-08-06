@@ -16,6 +16,7 @@ RSpec.describe SolidusPaypalBraintree::CheckoutsController, type: :controller do
           "payments_attributes" => [
             {
               "payment_method_id" => payment_method.id,
+              "braintree_device_data" => "test123",
               "source_attributes" => {
                 "nonce" => "fake-paypal-billing-agreement-nonce",
                 "payment_type" => SolidusPaypalBraintree::Source::PAYPAL
