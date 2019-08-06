@@ -291,6 +291,8 @@ module SolidusPaypalBraintree
         ALLOWED_BRAINTREE_OPTIONS.include?(key)
       end
 
+      params[:device_data] = options[:originator][:braintree_device_data]
+
       params[:channel] = "Solidus"
       params[:options] = { store_in_vault_on_success: true }
 
